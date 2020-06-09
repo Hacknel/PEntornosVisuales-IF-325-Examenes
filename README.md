@@ -1,2 +1,2 @@
-# PEntornosVisuales-IF-325-Examenes-Hacknel-Reyesc
+# PEntornosVisuales-IF-325-Examenes-Hacknel-Reyes
 Examenes Progrmacion Entonos Desarrollo Visual
