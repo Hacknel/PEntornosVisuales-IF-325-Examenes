@@ -33,23 +33,25 @@ Partial Class InicioAcceso
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(197, 66)
+        Me.Label1.Location = New System.Drawing.Point(25, 32)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(181, 24)
+        Me.Label1.Size = New System.Drawing.Size(470, 48)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Ingreso al Sistema"
+        Me.Label1.Text = "SISTEMA NACIONAL DE GESTION DE RIESGOS" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                             (SINAGER)"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(88, 155)
+        Me.Label2.Location = New System.Drawing.Point(97, 210)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(43, 13)
         Me.Label2.TabIndex = 1
@@ -57,22 +59,23 @@ Partial Class InicioAcceso
         '
         'txtUsuario
         '
-        Me.txtUsuario.Location = New System.Drawing.Point(155, 152)
+        Me.txtUsuario.Location = New System.Drawing.Point(164, 207)
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Size = New System.Drawing.Size(100, 20)
         Me.txtUsuario.TabIndex = 2
         '
         'txtContrasena
         '
-        Me.txtContrasena.Location = New System.Drawing.Point(155, 197)
+        Me.txtContrasena.Location = New System.Drawing.Point(164, 252)
         Me.txtContrasena.Name = "txtContrasena"
+        Me.txtContrasena.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtContrasena.Size = New System.Drawing.Size(100, 20)
         Me.txtContrasena.TabIndex = 4
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(88, 200)
+        Me.Label3.Location = New System.Drawing.Point(97, 255)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(61, 13)
         Me.Label3.TabIndex = 3
@@ -80,7 +83,7 @@ Partial Class InicioAcceso
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(279, 166)
+        Me.Button1.Location = New System.Drawing.Point(288, 221)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(86, 37)
         Me.Button1.TabIndex = 5
@@ -109,11 +112,21 @@ Partial Class InicioAcceso
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ExamenIParcialHacknelReyes.My.Resources.Resources.unnamed
+        Me.PictureBox1.Location = New System.Drawing.Point(160, 83)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(214, 107)
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
+        '
         'InicioAcceso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(536, 385)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnCrearUsuario)
         Me.Controls.Add(Me.Button1)
@@ -122,9 +135,12 @@ Partial Class InicioAcceso
         Me.Controls.Add(Me.txtUsuario)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "InicioAcceso"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -140,4 +156,5 @@ Partial Class InicioAcceso
     Friend WithEvents btnSalir As Button
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents PictureBox1 As PictureBox
 End Class
