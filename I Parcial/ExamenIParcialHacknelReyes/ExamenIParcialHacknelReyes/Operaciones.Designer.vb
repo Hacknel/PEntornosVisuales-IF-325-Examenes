@@ -81,11 +81,13 @@ Partial Class Operaciones
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ErrorProvider2 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -629,6 +631,10 @@ Partial Class Operaciones
         Me.PictureBox1.TabIndex = 47
         Me.PictureBox1.TabStop = False
         '
+        'ErrorProvider2
+        '
+        Me.ErrorProvider2.ContainerControl = Me
+        '
         'Operaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -654,6 +660,7 @@ Partial Class Operaciones
         Me.GroupBox3.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorProvider2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -717,4 +724,5 @@ Partial Class Operaciones
     Friend WithEvents Label20 As Label
     Friend WithEvents txtTotalPrubas As TextBox
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ErrorProvider2 As ErrorProvider
 End Class

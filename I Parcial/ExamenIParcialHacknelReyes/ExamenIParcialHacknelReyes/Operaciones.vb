@@ -270,4 +270,5 @@ Public Class Operaciones
         ToolTip1.ToolTipTitle = "Descripcion"
         ToolTip1.ToolTipIcon = ToolTipIcon.Info
     End Sub
+
 End Class

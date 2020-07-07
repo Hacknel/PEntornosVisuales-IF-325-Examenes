@@ -79,6 +79,13 @@
     <Compile Include="CrearUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Examen II Parcial\ExamenIIParcialMain.Designer.vb">
+      <DependentUpon>ExamenIIParcialMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Examen II Parcial\ExamenIIParcialMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Examen II Parcial\mduConexionesSQL.vb" />
     <Compile Include="InicioAcceso.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +97,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -112,6 +120,9 @@
   <ItemGroup>
     <EmbeddedResource Include="CrearUsuario.resx">
       <DependentUpon>CrearUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Examen II Parcial\ExamenIIParcialMain.resx">
+      <DependentUpon>ExamenIIParcialMain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioAcceso.resx">
       <DependentUpon>InicioAcceso.vb</DependentUpon>
