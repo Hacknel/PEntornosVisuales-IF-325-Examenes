@@ -52,11 +52,11 @@ Module mduConexionesSQL
         End Try
     End Function
 
-    Function comprobacionExiste(ByVal texto As String)
+    Function comprobacionExiste(ByVal instruccion As String)
         Try
             conexion.Open()
             comandos = conexion.CreateCommand()
-            comandos.CommandText = ("select idVenta from factura.Venta where idVenta = '" & Val(texto) & "'")
+            comandos.CommandText = (instruccion)
             Dim cr As Integer = CInt(comandos.ExecuteScalar())
             If cr > 0 Then
                 conexion.Close()

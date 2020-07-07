@@ -85,6 +85,18 @@
     <Compile Include="Examen II Parcial\ExamenIIParcialMain.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Examen II Parcial\frmAgregarCliente.Designer.vb">
+      <DependentUpon>frmAgregarCliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Examen II Parcial\frmAgregarCliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Examen II Parcial\frmAgregarProductos.Designer.vb">
+      <DependentUpon>frmAgregarProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Examen II Parcial\frmAgregarProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Examen II Parcial\mduConexionesSQL.vb" />
     <Compile Include="InicioAcceso.vb">
       <SubType>Form</SubType>
@@ -123,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Examen II Parcial\ExamenIIParcialMain.resx">
       <DependentUpon>ExamenIIParcialMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Examen II Parcial\frmAgregarCliente.resx">
+      <DependentUpon>frmAgregarCliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Examen II Parcial\frmAgregarProductos.resx">
+      <DependentUpon>frmAgregarProductos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InicioAcceso.resx">
       <DependentUpon>InicioAcceso.vb</DependentUpon>

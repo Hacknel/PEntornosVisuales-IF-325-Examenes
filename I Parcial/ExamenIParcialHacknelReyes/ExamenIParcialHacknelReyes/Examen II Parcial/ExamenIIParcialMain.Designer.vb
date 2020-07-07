@@ -44,15 +44,22 @@ Partial Class ExamenIIParcialMain
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnAgregarCliente = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.dgvFacturaDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvFacturaDatos
         '
+        Me.dgvFacturaDatos.AllowUserToAddRows = False
+        Me.dgvFacturaDatos.AllowUserToDeleteRows = False
         Me.dgvFacturaDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvFacturaDatos.Location = New System.Drawing.Point(12, 247)
         Me.dgvFacturaDatos.Name = "dgvFacturaDatos"
+        Me.dgvFacturaDatos.ReadOnly = True
         Me.dgvFacturaDatos.Size = New System.Drawing.Size(692, 185)
         Me.dgvFacturaDatos.TabIndex = 0
         '
@@ -212,7 +219,7 @@ Partial Class ExamenIIParcialMain
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(244, 39)
+        Me.Label2.Location = New System.Drawing.Point(228, 27)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(261, 25)
         Me.Label2.TabIndex = 23
@@ -222,11 +229,42 @@ Partial Class ExamenIIParcialMain
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'btnAgregarCliente
+        '
+        Me.btnAgregarCliente.Location = New System.Drawing.Point(610, 56)
+        Me.btnAgregarCliente.Name = "btnAgregarCliente"
+        Me.btnAgregarCliente.Size = New System.Drawing.Size(94, 40)
+        Me.btnAgregarCliente.TabIndex = 24
+        Me.btnAgregarCliente.Text = "Agregar Cliente/Persona"
+        Me.btnAgregarCliente.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(609, 102)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(94, 40)
+        Me.Button1.TabIndex = 25
+        Me.Button1.Text = "Agregar Producto"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(281, 56)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(173, 20)
+        Me.Label3.TabIndex = 26
+        Me.Label3.Text = "Gestion de Facturas"
+        '
         'ExamenIIParcialMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(715, 444)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnAgregarCliente)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.btnModificar)
@@ -277,4 +315,8 @@ Partial Class ExamenIIParcialMain
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btnAgregarCliente As Button
+    Friend WithEvents Label3 As Label
 End Class
