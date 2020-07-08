@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmAgregarProductos
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmAgregarProductos
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.btnLimpiar = New System.Windows.Forms.Button()
@@ -39,12 +39,16 @@ Partial Class frmAgregarProductos
         Me.dgvProductos = New System.Windows.Forms.DataGridView()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnCerrar = New System.Windows.Forms.Button()
         CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnLimpiar
         '
+        Me.btnLimpiar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLimpiar.Location = New System.Drawing.Point(415, 261)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(75, 23)
@@ -55,15 +59,17 @@ Partial Class frmAgregarProductos
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(132, 23)
+        Me.Label3.Font = New System.Drawing.Font("Terminator Real NFI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.Label3.Location = New System.Drawing.Point(126, 30)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(239, 25)
+        Me.Label3.Size = New System.Drawing.Size(342, 18)
         Me.Label3.TabIndex = 53
         Me.Label3.Text = "Gestion de Productos"
         '
         'btnModificar
         '
+        Me.btnModificar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.Location = New System.Drawing.Point(153, 161)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(75, 23)
@@ -73,6 +79,7 @@ Partial Class frmAgregarProductos
         '
         'btnEliminar
         '
+        Me.btnEliminar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Location = New System.Drawing.Point(333, 161)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
@@ -82,6 +89,7 @@ Partial Class frmAgregarProductos
         '
         'btnIngresar
         '
+        Me.btnIngresar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIngresar.Location = New System.Drawing.Point(243, 161)
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.Size = New System.Drawing.Size(75, 23)
@@ -91,7 +99,8 @@ Partial Class frmAgregarProductos
         '
         'btnRefrescar
         '
-        Me.btnRefrescar.Location = New System.Drawing.Point(62, 160)
+        Me.btnRefrescar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefrescar.Location = New System.Drawing.Point(62, 161)
         Me.btnRefrescar.Name = "btnRefrescar"
         Me.btnRefrescar.Size = New System.Drawing.Size(75, 23)
         Me.btnRefrescar.TabIndex = 49
@@ -101,14 +110,16 @@ Partial Class frmAgregarProductos
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(170, 57)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(62, 13)
+        Me.Label1.Size = New System.Drawing.Size(82, 12)
         Me.Label1.TabIndex = 48
         Me.Label1.Text = "Id Producto"
         '
         'btnBuscar
         '
+        Me.btnBuscar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBuscar.Location = New System.Drawing.Point(256, 71)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(75, 23)
@@ -119,18 +130,20 @@ Partial Class frmAgregarProductos
         'abel
         '
         Me.abel.AutoSize = True
+        Me.abel.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.abel.Location = New System.Drawing.Point(80, 109)
         Me.abel.Name = "abel"
-        Me.abel.Size = New System.Drawing.Size(90, 13)
+        Me.abel.Size = New System.Drawing.Size(110, 12)
         Me.abel.TabIndex = 46
         Me.abel.Text = "Nombre Producto"
         '
         'label
         '
         Me.label.AutoSize = True
+        Me.label.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.label.Location = New System.Drawing.Point(215, 109)
         Me.label.Name = "label"
-        Me.label.Size = New System.Drawing.Size(60, 13)
+        Me.label.Size = New System.Drawing.Size(75, 12)
         Me.label.TabIndex = 45
         Me.label.Text = "Descipcion"
         '
@@ -159,6 +172,7 @@ Partial Class frmAgregarProductos
         '
         Me.dgvProductos.AllowUserToAddRows = False
         Me.dgvProductos.AllowUserToDeleteRows = False
+        Me.dgvProductos.BackgroundColor = System.Drawing.SystemColors.InactiveCaption
         Me.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProductos.Location = New System.Drawing.Point(62, 190)
         Me.dgvProductos.Name = "dgvProductos"
@@ -170,11 +184,36 @@ Partial Class frmAgregarProductos
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ExamenIParcialHacknelReyes.My.Resources.Resources.pngocean_com__2_
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(108, 89)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 55
+        Me.PictureBox1.TabStop = False
+        '
+        'btnCerrar
+        '
+        Me.btnCerrar.FlatAppearance.BorderSize = 0
+        Me.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
+        Me.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCerrar.Image = Global.ExamenIParcialHacknelReyes.My.Resources.Resources.Icono_cerrar_FN
+        Me.btnCerrar.Location = New System.Drawing.Point(490, -2)
+        Me.btnCerrar.Name = "btnCerrar"
+        Me.btnCerrar.Size = New System.Drawing.Size(30, 30)
+        Me.btnCerrar.TabIndex = 57
+        Me.btnCerrar.UseVisualStyleBackColor = True
+        '
         'frmAgregarProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(520, 385)
+        Me.Controls.Add(Me.btnCerrar)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnModificar)
@@ -189,10 +228,12 @@ Partial Class frmAgregarProductos
         Me.Controls.Add(Me.txtDesc)
         Me.Controls.Add(Me.txtIdProducto)
         Me.Controls.Add(Me.dgvProductos)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmAgregarProductos"
-        Me.Text = "frmAgregarProductos"
+        Me.Text = "Messi Shop Gestion de Productos"
         CType(Me.dgvProductos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -214,4 +255,6 @@ Partial Class frmAgregarProductos
     Friend WithEvents dgvProductos As DataGridView
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btnCerrar As Button
 End Class

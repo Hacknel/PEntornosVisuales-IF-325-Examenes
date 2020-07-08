@@ -92,5 +92,32 @@ Module mduConexionesSQL
         End Try
     End Function
 
+    Function obtenerVariable(ByVal instruccion As String, ByVal columna As String, ByVal compro As Integer)
+        Try
+            conexion.Open()
+            comandos = New SqlCommand(instruccion, conexion)
+            leerVariables = comandos.ExecuteReader
+            While leerVariables.Read()
+                If Convert.ToInt16(leerVariables(columna)) = compro Then
+                    conexion.Close()
+                    Return 1
+                End If
+            End While
+            Return -1
+        Catch ex As Exception
+            MsgBox("Error de Lectura Variable", ex.ToString)
+            conexion.Close()
+            Return -1
+        End Try
+    End Function
+
+    Sub limpiar(ByVal a As Object)
+        For Each control As Control In a.Controls
+            If TypeOf control Is TextBox Then
+                control.Text = String.Empty
+            End If
+        Next
+    End Sub
+
 
 End Module

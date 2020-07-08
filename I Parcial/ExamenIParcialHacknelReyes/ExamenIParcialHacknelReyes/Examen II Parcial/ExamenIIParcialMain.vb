@@ -1,13 +1,23 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.Sql
 Imports System.Data.SqlClient
+Imports System.Runtime.InteropServices
 Public Class ExamenIIParcialMain
+
+    <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
+    Private Shared Sub ReleaseCapture()
+    End Sub
+
+    <DllImport("user32.DLL", EntryPoint:="SendMessage")>
+    Private Shared Sub SendMessage(ByVal hWnd As System.IntPtr, ByVal wMsg As Integer, ByVal wParam As Integer, ByVal lParam As Integer)
+    End Sub
+
     Private Sub ExamenIIParcialMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenardataGrid(dgvFacturaDatos, "select ve.idVenta as 'Id Venta', cl.nombre as 'Nombre', cl.apellido as 'Apellidos', pr.nombreProducto as 'Nombre Producto', ve.cantidad as 'Cantidad Producto', ve.precio as 'Precio Venta', ve.fechaVenta as 'Fecha de Venta' from factura.cliente cl inner join factura.Venta ve on cl.idCliente = ve.idCliente inner join factura.producto pr on pr.idProducto = ve.idProducto")
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
-        If Me.ValidateChildren And txtidVenta.Text <> String.Empty Then
+        If txtidVenta.Text <> String.Empty Then
             If comprobacionExiste("select idVenta from factura.Venta where idVenta = '" & Val(txtidVenta.Text) & "'") = 1 Then
                 llenarTextBox(mtxtFecha, "select fechaVenta from factura.Venta where idVenta = '" & txtidVenta.Text & "'", "fechaVenta")
                 llenarTextBox(txtPrecio, "select precio from factura.Venta where idVenta = '" & txtidVenta.Text & "'", "precio")
@@ -31,26 +41,41 @@ Public Class ExamenIIParcialMain
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         Try
             If comprobaciones() = 0 Then
-                conexion.Open()
-                Dim comandos As SqlCommand = conexion.CreateCommand()
-                comandos.CommandText = "modificar"
-                comandos.CommandType = CommandType.StoredProcedure
-                comandos.Parameters.AddWithValue("@idVenta", Val(txtidVenta.Text))
-                comandos.Parameters.AddWithValue("@fechaVenta", mtxtFecha.Text)
-                comandos.Parameters.AddWithValue("@precio", Val(txtPrecio.Text))
-                comandos.Parameters.AddWithValue("@cantidad", Val(txtCantidad.Text))
-                comandos.Parameters.AddWithValue("@idCliente", Val(txtidCliente.Text))
-                comandos.Parameters.AddWithValue("@idProducto", Val(txtIdProducto.Text))
+                If obtenerVariable("select * from factura.cliente", "idCliente", Val(txtidCliente.Text)) = 1 Then
+                    If obtenerVariable("select * from factura.producto", "idProducto", Val(txtIdProducto.Text)) = 1 Then
+                        conexion.Open()
+                        Dim comandos As SqlCommand = conexion.CreateCommand()
+                        comandos.CommandText = "modificar"
+                        comandos.CommandType = CommandType.StoredProcedure
+                        comandos.Parameters.AddWithValue("@idVenta", Val(txtidVenta.Text))
+                        comandos.Parameters.AddWithValue("@fechaVenta", mtxtFecha.Text)
+                        comandos.Parameters.AddWithValue("@precio", Val(txtPrecio.Text))
+                        comandos.Parameters.AddWithValue("@cantidad", Val(txtCantidad.Text))
+                        comandos.Parameters.AddWithValue("@idCliente", Val(txtidCliente.Text))
+                        comandos.Parameters.AddWithValue("@idProducto", Val(txtIdProducto.Text))
 
-                If comandos.ExecuteNonQuery() Then
-                    conexion.Close()
-                    MessageBox.Show("Modificacion Realizada Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    llenardataGrid(dgvFacturaDatos, "select ve.idVenta as 'Id Venta',  cl.nombre as 'Nombre', cl.apellido as 'Apellidos', pr.nombreProducto as 'Nombre Producto', ve.cantidad as 'Cantidad Producto', ve.precio as 'Precio Venta', ve.fechaVenta as 'Fecha de Venta' from factura.cliente cl inner join factura.Venta ve on cl.idCliente = ve.idCliente inner join factura.producto pr on pr.idProducto = ve.idProducto")
+                        If comandos.ExecuteNonQuery() Then
+                            conexion.Close()
+                            MessageBox.Show("Modificacion Realizada Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            llenardataGrid(dgvFacturaDatos, "select ve.idVenta as 'Id Venta',  cl.nombre as 'Nombre', cl.apellido as 'Apellidos', pr.nombreProducto as 'Nombre Producto', ve.cantidad as 'Cantidad Producto', ve.precio as 'Precio Venta', ve.fechaVenta as 'Fecha de Venta' from factura.cliente cl inner join factura.Venta ve on cl.idCliente = ve.idCliente inner join factura.producto pr on pr.idProducto = ve.idProducto")
 
+                        Else
+                            conexion.Close()
+                            MessageBox.Show("Modificacion No realizada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End If
+                    ElseIf MessageBox.Show("No se encuentra el registro ID " + txtIdProducto.Text + " en productos ¿Desea entrar al mantemiento de productos? ", "CONSULTA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                        frmAgregarProductos.Show()
+                    Else
+                        limpiar(Me)
+                    End If
+
+                ElseIf MessageBox.Show("No se encuentra el registro ID " + txtidCliente.Text + " en clientes ¿Desea entrar al mantemiento de clientes?", "CONSULTA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                    frmAgregarCliente.Show()
                 Else
-                    conexion.Close()
-                    MessageBox.Show("Modificacion No realizada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    limpiar(Me)
+                    mtxtFecha.Clear()
                 End If
+
             End If
         Catch ex As Exception
             MsgBox("Error de Ejecucion de Modificar", ex.ToString)
@@ -62,31 +87,49 @@ Public Class ExamenIIParcialMain
         If comprobaciones() = 0 Then
             ejecutarComando("delete from factura.Venta where idVenta = '" & txtidVenta.Text & "'")
             llenardataGrid(dgvFacturaDatos, "select ve.idVenta as 'Id Venta',  cl.nombre as 'Nombre', cl.apellido as 'Apellidos', pr.nombreProducto as 'Nombre Producto', ve.cantidad as 'Cantidad Producto', ve.precio as 'Precio Venta', ve.fechaVenta as 'Fecha de Venta' from factura.cliente cl inner join factura.Venta ve on cl.idCliente = ve.idCliente inner join factura.producto pr on pr.idProducto = ve.idProducto")
+            MessageBox.Show("Eliminacion Realizada Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
         End If
 
     End Sub
 
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
         Try
-            conexion.Open()
-            Dim comandos As SqlCommand = conexion.CreateCommand()
-            comandos.CommandText = "insertar"
-            comandos.CommandType = CommandType.StoredProcedure
-            comandos.Parameters.AddWithValue("@idVenta", Val(txtidVenta.Text))
-            comandos.Parameters.AddWithValue("@fechaVenta", mtxtFecha.Text)
-            comandos.Parameters.AddWithValue("@precio", Val(txtPrecio.Text))
-            comandos.Parameters.AddWithValue("@cantidad", Val(txtCantidad.Text))
-            comandos.Parameters.AddWithValue("@idCliente", Val(txtidCliente.Text))
-            comandos.Parameters.AddWithValue("@idProducto", Val(txtIdProducto.Text))
+            If comprobaciones() = 0 Then
+                If obtenerVariable("select * from factura.cliente", "idCliente", Val(txtidCliente.Text)) = 1 Then
+                    If obtenerVariable("select * from factura.producto", "idProducto", Val(txtIdProducto.Text)) = 1 Then
+                        conexion.Open()
+                        Dim comandos As SqlCommand = conexion.CreateCommand()
+                        comandos.CommandText = "insertar"
+                        comandos.CommandType = CommandType.StoredProcedure
+                        comandos.Parameters.AddWithValue("@idVenta", Val(txtidVenta.Text))
+                        comandos.Parameters.AddWithValue("@fechaVenta", mtxtFecha.Text)
+                        comandos.Parameters.AddWithValue("@precio", Val(txtPrecio.Text))
+                        comandos.Parameters.AddWithValue("@cantidad", Val(txtCantidad.Text))
+                        comandos.Parameters.AddWithValue("@idCliente", Val(txtidCliente.Text))
+                        comandos.Parameters.AddWithValue("@idProducto", Val(txtIdProducto.Text))
 
-            If comandos.ExecuteNonQuery() Then
-                conexion.Close()
-                MessageBox.Show("Ingreso Realizado Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                llenardataGrid(dgvFacturaDatos, "select ve.idVenta as 'Id Venta',  cl.nombre as 'Nombre', cl.apellido as 'Apellidos', pr.nombreProducto as 'Nombre Producto', ve.cantidad as 'Cantidad Producto', ve.precio as 'Precio Venta', ve.fechaVenta as 'Fecha de Venta' from factura.cliente cl inner join factura.Venta ve on cl.idCliente = ve.idCliente inner join factura.producto pr on pr.idProducto = ve.idProducto")
+                        If comandos.ExecuteNonQuery() Then
+                            conexion.Close()
+                            MessageBox.Show("Ingreso Realizado Correctamente", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            llenardataGrid(dgvFacturaDatos, "select ve.idVenta as 'Id Venta',  cl.nombre as 'Nombre', cl.apellido as 'Apellidos', pr.nombreProducto as 'Nombre Producto', ve.cantidad as 'Cantidad Producto', ve.precio as 'Precio Venta', ve.fechaVenta as 'Fecha de Venta' from factura.cliente cl inner join factura.Venta ve on cl.idCliente = ve.idCliente inner join factura.producto pr on pr.idProducto = ve.idProducto")
 
-            Else
-                conexion.Close()
-                MessageBox.Show("Ingreso No realizado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Else
+                            conexion.Close()
+                            MessageBox.Show("Ingreso No realizado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        End If
+                    ElseIf MessageBox.Show("No se encuentra el registro ID " + txtIdProducto.Text + " en productos ¿Desea entrar al mantemiento de productos? ", "CONSULTA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                        frmAgregarProductos.Show()
+                    Else
+                        limpiar(Me)
+                        mtxtFecha.Clear()
+                    End If
+
+                ElseIf MessageBox.Show("No se encuentra el registro ID " + txtidCliente.Text + " en clientes ¿Desea entrar al mantemiento de clientes?", "CONSULTA", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.OK Then
+                    frmAgregarCliente.Show()
+                Else
+                    limpiar(Me)
+                End If
             End If
 
         Catch ex As Exception
@@ -127,7 +170,7 @@ Public Class ExamenIIParcialMain
         ToolTip1.ToolTipIcon = ToolTipIcon.Info
     End Sub
 
-    Private Sub mtxtFecha_Validating(sender As Object, e As CancelEventArgs) Handles mtxtFecha.Validating
+    Private Sub mtxtFecha_Validating(sender As Object, e As CancelEventArgs)
         If DirectCast(sender, MaskedTextBox).TextLength > 0 Then
             Me.ErrorProvider1.SetError(sender, "")
         Else
@@ -135,7 +178,7 @@ Public Class ExamenIIParcialMain
         End If
     End Sub
 
-    Private Sub mtxtFecha_MouseHover(sender As Object, e As EventArgs) Handles mtxtFecha.MouseHover
+    Private Sub mtxtFecha_MouseHover(sender As Object, e As EventArgs)
         ToolTip1.SetToolTip(mtxtFecha, "Introduzca la fecha de venta")
         ToolTip1.ToolTipTitle = "Ingrese Valores"
         ToolTip1.ToolTipIcon = ToolTipIcon.Info
@@ -189,5 +232,15 @@ Public Class ExamenIIParcialMain
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         frmAgregarProductos.Show()
+    End Sub
+
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        If MessageBox.Show("¿Esta seguro de salir? ", "CONSULTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
+            End
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
+        Me.WindowState = FormWindowState.Minimized
     End Sub
 End Class

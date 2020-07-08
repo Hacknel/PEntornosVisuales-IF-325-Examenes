@@ -35,7 +35,6 @@ Partial Class ExamenIIParcialMain
         Me.txtPrecio = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.mtxtFecha = New System.Windows.Forms.MaskedTextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.btnRefrescar = New System.Windows.Forms.Button()
         Me.btnIngresar = New System.Windows.Forms.Button()
@@ -48,24 +47,30 @@ Partial Class ExamenIIParcialMain
         Me.btnAgregarCliente = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.mtxtFecha = New System.Windows.Forms.TextBox()
+        Me.btnMinimizar = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.dgvFacturaDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvFacturaDatos
         '
         Me.dgvFacturaDatos.AllowUserToAddRows = False
         Me.dgvFacturaDatos.AllowUserToDeleteRows = False
+        Me.dgvFacturaDatos.BackgroundColor = System.Drawing.SystemColors.InactiveCaption
         Me.dgvFacturaDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvFacturaDatos.Location = New System.Drawing.Point(12, 247)
+        Me.dgvFacturaDatos.Location = New System.Drawing.Point(18, 247)
         Me.dgvFacturaDatos.Name = "dgvFacturaDatos"
         Me.dgvFacturaDatos.ReadOnly = True
-        Me.dgvFacturaDatos.Size = New System.Drawing.Size(692, 185)
+        Me.dgvFacturaDatos.Size = New System.Drawing.Size(744, 185)
         Me.dgvFacturaDatos.TabIndex = 0
         '
         'txtidVenta
         '
-        Me.txtidVenta.Location = New System.Drawing.Point(285, 113)
+        Me.txtidVenta.Location = New System.Drawing.Point(309, 113)
         Me.txtidVenta.Name = "txtidVenta"
         Me.txtidVenta.Size = New System.Drawing.Size(100, 20)
         Me.txtidVenta.TabIndex = 1
@@ -73,15 +78,17 @@ Partial Class ExamenIIParcialMain
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(282, 97)
+        Me.Label1.Font = New System.Drawing.Font("MS UI Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(315, 99)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(47, 13)
+        Me.Label1.Size = New System.Drawing.Size(56, 12)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Id Venta"
         '
         'txtIdProducto
         '
-        Me.txtIdProducto.Location = New System.Drawing.Point(524, 166)
+        Me.txtIdProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIdProducto.Location = New System.Drawing.Point(548, 169)
         Me.txtIdProducto.Name = "txtIdProducto"
         Me.txtIdProducto.Size = New System.Drawing.Size(100, 20)
         Me.txtIdProducto.TabIndex = 5
@@ -89,15 +96,17 @@ Partial Class ExamenIIParcialMain
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(521, 150)
+        Me.Label4.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(545, 153)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(62, 13)
+        Me.Label4.Size = New System.Drawing.Size(82, 12)
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "Id Producto"
         '
         'txtidCliente
         '
-        Me.txtidCliente.Location = New System.Drawing.Point(418, 166)
+        Me.txtidCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtidCliente.Location = New System.Drawing.Point(427, 169)
         Me.txtidCliente.Name = "txtidCliente"
         Me.txtidCliente.Size = New System.Drawing.Size(100, 20)
         Me.txtidCliente.TabIndex = 7
@@ -105,15 +114,17 @@ Partial Class ExamenIIParcialMain
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(415, 150)
+        Me.Label5.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(424, 153)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(51, 13)
+        Me.Label5.Size = New System.Drawing.Size(75, 12)
         Me.Label5.TabIndex = 10
         Me.Label5.Text = "Id Cliente"
         '
         'txtCantidad
         '
-        Me.txtCantidad.Location = New System.Drawing.Point(312, 166)
+        Me.txtCantidad.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtCantidad.Location = New System.Drawing.Point(309, 169)
         Me.txtCantidad.Name = "txtCantidad"
         Me.txtCantidad.Size = New System.Drawing.Size(100, 20)
         Me.txtCantidad.TabIndex = 9
@@ -121,15 +132,17 @@ Partial Class ExamenIIParcialMain
         'label
         '
         Me.label.AutoSize = True
-        Me.label.Location = New System.Drawing.Point(309, 150)
+        Me.label.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.label.Location = New System.Drawing.Point(306, 153)
         Me.label.Name = "label"
-        Me.label.Size = New System.Drawing.Size(49, 13)
+        Me.label.Size = New System.Drawing.Size(61, 12)
         Me.label.TabIndex = 12
         Me.label.Text = "Cantidad"
         '
         'txtPrecio
         '
-        Me.txtPrecio.Location = New System.Drawing.Point(206, 166)
+        Me.txtPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPrecio.Location = New System.Drawing.Point(192, 169)
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.Size = New System.Drawing.Size(100, 20)
         Me.txtPrecio.TabIndex = 11
@@ -137,33 +150,27 @@ Partial Class ExamenIIParcialMain
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(207, 150)
+        Me.Label7.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(193, 153)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(37, 13)
+        Me.Label7.Size = New System.Drawing.Size(47, 12)
         Me.Label7.TabIndex = 14
         Me.Label7.Text = "Precio"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(97, 150)
+        Me.Label8.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(71, 153)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(83, 13)
+        Me.Label8.Size = New System.Drawing.Size(103, 12)
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Fecha de Venta"
         '
-        'mtxtFecha
-        '
-        Me.mtxtFecha.Location = New System.Drawing.Point(100, 166)
-        Me.mtxtFecha.Mask = "00/00/0000"
-        Me.mtxtFecha.Name = "mtxtFecha"
-        Me.mtxtFecha.Size = New System.Drawing.Size(80, 20)
-        Me.mtxtFecha.TabIndex = 16
-        Me.mtxtFecha.ValidatingType = GetType(Date)
-        '
         'btnBuscar
         '
-        Me.btnBuscar.Location = New System.Drawing.Point(391, 111)
+        Me.btnBuscar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscar.Location = New System.Drawing.Point(415, 111)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(75, 23)
         Me.btnBuscar.TabIndex = 17
@@ -172,7 +179,8 @@ Partial Class ExamenIIParcialMain
         '
         'btnRefrescar
         '
-        Me.btnRefrescar.Location = New System.Drawing.Point(182, 217)
+        Me.btnRefrescar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRefrescar.Location = New System.Drawing.Point(206, 217)
         Me.btnRefrescar.Name = "btnRefrescar"
         Me.btnRefrescar.Size = New System.Drawing.Size(75, 23)
         Me.btnRefrescar.TabIndex = 18
@@ -181,7 +189,8 @@ Partial Class ExamenIIParcialMain
         '
         'btnIngresar
         '
-        Me.btnIngresar.Location = New System.Drawing.Point(363, 218)
+        Me.btnIngresar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnIngresar.Location = New System.Drawing.Point(387, 218)
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.Size = New System.Drawing.Size(75, 23)
         Me.btnIngresar.TabIndex = 19
@@ -190,7 +199,8 @@ Partial Class ExamenIIParcialMain
         '
         'btnEliminar
         '
-        Me.btnEliminar.Location = New System.Drawing.Point(453, 218)
+        Me.btnEliminar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminar.Location = New System.Drawing.Point(480, 218)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
         Me.btnEliminar.TabIndex = 20
@@ -199,7 +209,8 @@ Partial Class ExamenIIParcialMain
         '
         'btnModificar
         '
-        Me.btnModificar.Location = New System.Drawing.Point(273, 218)
+        Me.btnModificar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnModificar.Location = New System.Drawing.Point(297, 218)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(75, 23)
         Me.btnModificar.TabIndex = 21
@@ -208,7 +219,8 @@ Partial Class ExamenIIParcialMain
         '
         'btnLimpiar
         '
-        Me.btnLimpiar.Location = New System.Drawing.Point(628, 218)
+        Me.btnLimpiar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.Location = New System.Drawing.Point(652, 218)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(75, 23)
         Me.btnLimpiar.TabIndex = 22
@@ -218,10 +230,10 @@ Partial Class ExamenIIParcialMain
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(228, 27)
+        Me.Label2.Font = New System.Drawing.Font("Terminator Real NFI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(212, 35)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(261, 25)
+        Me.Label2.Size = New System.Drawing.Size(417, 21)
         Me.Label2.TabIndex = 23
         Me.Label2.Text = "Tienda Deportiva Messi"
         '
@@ -231,7 +243,8 @@ Partial Class ExamenIIParcialMain
         '
         'btnAgregarCliente
         '
-        Me.btnAgregarCliente.Location = New System.Drawing.Point(610, 56)
+        Me.btnAgregarCliente.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregarCliente.Location = New System.Drawing.Point(684, 57)
         Me.btnAgregarCliente.Name = "btnAgregarCliente"
         Me.btnAgregarCliente.Size = New System.Drawing.Size(94, 40)
         Me.btnAgregarCliente.TabIndex = 24
@@ -240,7 +253,8 @@ Partial Class ExamenIIParcialMain
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(609, 102)
+        Me.Button1.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(683, 103)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(94, 40)
         Me.Button1.TabIndex = 25
@@ -250,18 +264,66 @@ Partial Class ExamenIIParcialMain
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(281, 56)
+        Me.Label3.Font = New System.Drawing.Font("Terminator Real NFI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.Label3.Location = New System.Drawing.Point(256, 67)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(173, 20)
+        Me.Label3.Size = New System.Drawing.Size(321, 18)
         Me.Label3.TabIndex = 26
         Me.Label3.Text = "Gestion de Facturas"
+        '
+        'mtxtFecha
+        '
+        Me.mtxtFecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mtxtFecha.Location = New System.Drawing.Point(94, 169)
+        Me.mtxtFecha.Name = "mtxtFecha"
+        Me.mtxtFecha.Size = New System.Drawing.Size(80, 20)
+        Me.mtxtFecha.TabIndex = 27
+        '
+        'btnMinimizar
+        '
+        Me.btnMinimizar.FlatAppearance.BorderSize = 0
+        Me.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray
+        Me.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnMinimizar.Image = Global.ExamenIParcialHacknelReyes.My.Resources.Resources.Icono_Minimizar
+        Me.btnMinimizar.Location = New System.Drawing.Point(724, -1)
+        Me.btnMinimizar.Name = "btnMinimizar"
+        Me.btnMinimizar.Size = New System.Drawing.Size(30, 30)
+        Me.btnMinimizar.TabIndex = 60
+        Me.btnMinimizar.UseVisualStyleBackColor = True
+        '
+        'btnSalir
+        '
+        Me.btnSalir.FlatAppearance.BorderSize = 0
+        Me.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Image = Global.ExamenIParcialHacknelReyes.My.Resources.Resources.Icono_cerrar_FN
+        Me.btnSalir.Location = New System.Drawing.Point(760, -1)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(30, 30)
+        Me.btnSalir.TabIndex = 59
+        Me.btnSalir.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ExamenIParcialHacknelReyes.My.Resources.Resources.pngocean_com__2_
+        Me.PictureBox1.Location = New System.Drawing.Point(42, 18)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(164, 115)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 28
+        Me.PictureBox1.TabStop = False
         '
         'ExamenIIParcialMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(715, 444)
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.ClientSize = New System.Drawing.Size(789, 444)
+        Me.Controls.Add(Me.btnMinimizar)
+        Me.Controls.Add(Me.btnSalir)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.mtxtFecha)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnAgregarCliente)
@@ -272,7 +334,6 @@ Partial Class ExamenIIParcialMain
         Me.Controls.Add(Me.btnIngresar)
         Me.Controls.Add(Me.btnRefrescar)
         Me.Controls.Add(Me.btnBuscar)
-        Me.Controls.Add(Me.mtxtFecha)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.label)
@@ -285,10 +346,12 @@ Partial Class ExamenIIParcialMain
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtidVenta)
         Me.Controls.Add(Me.dgvFacturaDatos)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ExamenIIParcialMain"
-        Me.Text = "ExamenIIParcialMain"
+        Me.Text = "Gestion Facturas Messi Shop"
         CType(Me.dgvFacturaDatos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -306,7 +369,6 @@ Partial Class ExamenIIParcialMain
     Friend WithEvents txtPrecio As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents mtxtFecha As MaskedTextBox
     Friend WithEvents btnBuscar As Button
     Friend WithEvents btnRefrescar As Button
     Friend WithEvents btnIngresar As Button
@@ -319,4 +381,8 @@ Partial Class ExamenIIParcialMain
     Friend WithEvents Button1 As Button
     Friend WithEvents btnAgregarCliente As Button
     Friend WithEvents Label3 As Label
+    Friend WithEvents mtxtFecha As TextBox
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btnMinimizar As Button
+    Friend WithEvents btnSalir As Button
 End Class

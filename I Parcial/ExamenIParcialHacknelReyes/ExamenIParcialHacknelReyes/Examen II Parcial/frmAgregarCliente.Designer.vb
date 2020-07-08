@@ -41,23 +41,28 @@ Partial Class frmAgregarCliente
         Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btnSalir = New System.Windows.Forms.Button()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvClientes
         '
         Me.dgvClientes.AllowUserToAddRows = False
         Me.dgvClientes.AllowUserToDeleteRows = False
+        Me.dgvClientes.BackgroundColor = System.Drawing.SystemColors.InactiveCaption
         Me.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvClientes.Location = New System.Drawing.Point(80, 190)
+        Me.dgvClientes.Location = New System.Drawing.Point(31, 190)
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.ReadOnly = True
-        Me.dgvClientes.Size = New System.Drawing.Size(346, 172)
+        Me.dgvClientes.Size = New System.Drawing.Size(456, 172)
         Me.dgvClientes.TabIndex = 1
         '
         'btnBuscar
         '
+        Me.btnBuscar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnBuscar.Location = New System.Drawing.Point(261, 71)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(75, 23)
@@ -68,23 +73,26 @@ Partial Class frmAgregarCliente
         'abel
         '
         Me.abel.AutoSize = True
+        Me.abel.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.abel.Location = New System.Drawing.Point(50, 109)
         Me.abel.Name = "abel"
-        Me.abel.Size = New System.Drawing.Size(44, 13)
+        Me.abel.Size = New System.Drawing.Size(47, 12)
         Me.abel.TabIndex = 26
         Me.abel.Text = "Nombre"
         '
         'label
         '
         Me.label.AutoSize = True
+        Me.label.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.label.Location = New System.Drawing.Point(152, 109)
         Me.label.Name = "label"
-        Me.label.Size = New System.Drawing.Size(49, 13)
+        Me.label.Size = New System.Drawing.Size(68, 12)
         Me.label.TabIndex = 25
         Me.label.Text = "Apellidos"
         '
         'txtNombre
         '
+        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombre.Location = New System.Drawing.Point(49, 125)
         Me.txtNombre.Name = "txtNombre"
         Me.txtNombre.Size = New System.Drawing.Size(100, 20)
@@ -93,14 +101,16 @@ Partial Class frmAgregarCliente
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(258, 109)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(52, 13)
+        Me.Label5.Size = New System.Drawing.Size(68, 12)
         Me.Label5.TabIndex = 23
         Me.Label5.Text = "Direccion"
         '
         'txtApellidos
         '
+        Me.txtApellidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtApellidos.Location = New System.Drawing.Point(155, 125)
         Me.txtApellidos.Name = "txtApellidos"
         Me.txtApellidos.Size = New System.Drawing.Size(100, 20)
@@ -108,6 +118,7 @@ Partial Class frmAgregarCliente
         '
         'txtDireccion
         '
+        Me.txtDireccion.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDireccion.Location = New System.Drawing.Point(261, 125)
         Me.txtDireccion.Name = "txtDireccion"
         Me.txtDireccion.Size = New System.Drawing.Size(195, 20)
@@ -115,6 +126,7 @@ Partial Class frmAgregarCliente
         '
         'txtidCliente
         '
+        Me.txtidCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtidCliente.Location = New System.Drawing.Point(191, 73)
         Me.txtidCliente.Name = "txtidCliente"
         Me.txtidCliente.Size = New System.Drawing.Size(64, 20)
@@ -123,14 +135,16 @@ Partial Class frmAgregarCliente
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("MS Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(188, 57)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 13)
+        Me.Label1.Size = New System.Drawing.Size(75, 11)
         Me.Label1.TabIndex = 30
         Me.Label1.Text = "Id Cliente"
         '
         'btnModificar
         '
+        Me.btnModificar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnModificar.Location = New System.Drawing.Point(171, 161)
         Me.btnModificar.Name = "btnModificar"
         Me.btnModificar.Size = New System.Drawing.Size(75, 23)
@@ -140,6 +154,7 @@ Partial Class frmAgregarCliente
         '
         'btnEliminar
         '
+        Me.btnEliminar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminar.Location = New System.Drawing.Point(351, 161)
         Me.btnEliminar.Name = "btnEliminar"
         Me.btnEliminar.Size = New System.Drawing.Size(75, 23)
@@ -149,6 +164,7 @@ Partial Class frmAgregarCliente
         '
         'btnIngresar
         '
+        Me.btnIngresar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnIngresar.Location = New System.Drawing.Point(261, 161)
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.Size = New System.Drawing.Size(75, 23)
@@ -158,6 +174,7 @@ Partial Class frmAgregarCliente
         '
         'btnRefrescar
         '
+        Me.btnRefrescar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRefrescar.Location = New System.Drawing.Point(80, 160)
         Me.btnRefrescar.Name = "btnRefrescar"
         Me.btnRefrescar.Size = New System.Drawing.Size(75, 23)
@@ -168,16 +185,19 @@ Partial Class frmAgregarCliente
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(150, 22)
+        Me.Label3.BackColor = System.Drawing.SystemColors.InactiveCaption
+        Me.Label3.Font = New System.Drawing.Font("Terminator Real NFI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.Label3.Location = New System.Drawing.Point(111, 24)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(219, 25)
+        Me.Label3.Size = New System.Drawing.Size(291, 17)
         Me.Label3.TabIndex = 37
         Me.Label3.Text = "Gestion de Clientes"
         '
         'btnLimpiar
         '
-        Me.btnLimpiar.Location = New System.Drawing.Point(433, 261)
+        Me.btnLimpiar.Font = New System.Drawing.Font("MS Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.Location = New System.Drawing.Point(444, 160)
         Me.btnLimpiar.Name = "btnLimpiar"
         Me.btnLimpiar.Size = New System.Drawing.Size(75, 23)
         Me.btnLimpiar.TabIndex = 38
@@ -188,11 +208,36 @@ Partial Class frmAgregarCliente
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ExamenIParcialHacknelReyes.My.Resources.Resources.pngocean_com__2_
+        Me.PictureBox1.Location = New System.Drawing.Point(-3, 5)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(108, 89)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 39
+        Me.PictureBox1.TabStop = False
+        '
+        'btnSalir
+        '
+        Me.btnSalir.FlatAppearance.BorderSize = 0
+        Me.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red
+        Me.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSalir.Image = Global.ExamenIParcialHacknelReyes.My.Resources.Resources.Icono_cerrar_FN
+        Me.btnSalir.Location = New System.Drawing.Point(489, 0)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(30, 30)
+        Me.btnSalir.TabIndex = 58
+        Me.btnSalir.UseVisualStyleBackColor = True
+        '
         'frmAgregarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.ClientSize = New System.Drawing.Size(520, 385)
+        Me.Controls.Add(Me.btnSalir)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnLimpiar)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnModificar)
@@ -209,10 +254,12 @@ Partial Class frmAgregarCliente
         Me.Controls.Add(Me.txtDireccion)
         Me.Controls.Add(Me.txtidCliente)
         Me.Controls.Add(Me.dgvClientes)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmAgregarCliente"
-        Me.Text = "frmAgregarCliente"
+        Me.Text = "Messi Shop Gestion Clientes"
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -236,4 +283,6 @@ Partial Class frmAgregarCliente
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents btnSalir As Button
 End Class

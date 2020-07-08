@@ -129,4 +129,8 @@ Public Class frmAgregarCliente
         ToolTip1.ToolTipTitle = "Ingrese Valores"
         ToolTip1.ToolTipIcon = ToolTipIcon.Info
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Me.Close()
+    End Sub
 End Class

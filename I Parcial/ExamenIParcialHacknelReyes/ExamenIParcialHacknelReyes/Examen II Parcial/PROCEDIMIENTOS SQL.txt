@@ -1,0 +1,26 @@
+﻿insert into factura.cliente values(1 ,'Hacknel Alexis', 'Reyes del Cid', 'Barrio Plaza de Armas, La Esperanza'), 
+(2 ,'Pedro Petronilo', 'Perez Diaz', 'Barrio El Way, La Esperanza'), 
+(3 ,'Juana Francisca', 'Mendoza Meza', 'Colonia Periodista, La Esperanza'),
+(4 ,'Maria Cruz', 'Hernandez Alvarado', 'Barrio Bueno Aires, La Esperanza');
+go
+
+insert into factura.producto values(1, 'Zapato Deportivo Casual', 'Zapatos deportivos casuales'),
+(2, 'Zapato Deportivo Profesional', 'Zapatos deportivos profesionales talla 45'),
+(3, 'Camisa Para Entrenamiento', 'Camisa deportiva entrenamiento casual talla M '),
+(4, 'Bote Deportivo', 'Bote deportivo grande Marca Reebok');
+go
+
+create procedure insertar(@idVenta int, @fechaVenta date, @precio int, @cantidad int, @idCliente int, @idProducto int)
+as begin
+insert into factura.Venta (idVenta, fechaVenta, precio,cantidad,idCliente,idProducto) values(@idVenta, @fechaVenta, @precio, @cantidad, @idCliente, @idProducto)
+end
+go
+
+create procedure modificar(@idVenta int, @fechaVenta date, @precio int, @cantidad int, @idCliente int, @idProducto int)
+as begin
+update factura.Venta set idVenta=@idVenta, fechaVenta=@fechaVenta,  precio=@precio, cantidad=@cantidad, idCliente=@idCliente, idProducto=@idProducto where idVenta = @idVenta
+end
+go
+
+execute insertar 2, '07-07-2020', 500, 2, 1, 1;
+go
