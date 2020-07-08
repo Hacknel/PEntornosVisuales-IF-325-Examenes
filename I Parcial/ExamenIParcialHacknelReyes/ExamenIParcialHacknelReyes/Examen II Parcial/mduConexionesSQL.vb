@@ -2,13 +2,15 @@
 Imports System.Data.SqlClient
 
 Module mduConexionesSQL
-
+    'Declaracion de la variable requerida para conectar la BD
     Public conexion As SqlConnection = New SqlConnection("Data Source=HACKNEL;Initial Catalog=Tienda;Integrated Security=True")
+    'declaracion de variables necesarias para la operacion de BD
     Public adaptadorDatos As SqlDataAdapter
     Public comandos As SqlCommand
     Public leerVariables As SqlDataReader
     Public tablasDatos As DataTable
 
+    'Al arranqcar el programa hace una comprobacion de que la conexion con la BD este correcta
     Sub probarConexion()
         Try
             conexion.Open()
@@ -19,6 +21,7 @@ Module mduConexionesSQL
         End Try
     End Sub
 
+    'Funcion para enviar comandos SQL a la base de datos
     Function ejecutarComando(ByVal instruccion As String)
         Try
             conexion.Open()
@@ -37,6 +40,7 @@ Module mduConexionesSQL
         End Try
     End Function
 
+    'Funcion que llena el DGV que se le envie, segun una instruccion especifica
     Function llenardataGrid(ByVal dgv As DataGridView, ByVal instruccion As String)
         Try
             conexion.Open()
@@ -52,6 +56,7 @@ Module mduConexionesSQL
         End Try
     End Function
 
+    'Comprueba que un valor exista o tengo un valor en registro
     Function comprobacionExiste(ByVal instruccion As String)
         Try
             conexion.Open()
@@ -72,6 +77,7 @@ Module mduConexionesSQL
         End Try
     End Function
 
+    'Funcion que llena instancias de control como textBox o maskedTextBox
     Function llenarTextBox(ByVal textB As Object, ByVal instruccion As String, ByVal columnas As String)
         Try
             conexion.Open()
@@ -92,6 +98,7 @@ Module mduConexionesSQL
         End Try
     End Function
 
+    'Funcion para obtener variables operacionales de la base de datos
     Function obtenerVariable(ByVal instruccion As String, ByVal columna As String, ByVal compro As Integer)
         Try
             conexion.Open()
@@ -111,6 +118,7 @@ Module mduConexionesSQL
         End Try
     End Function
 
+    'Funcion que limpia los textbox en un determinado control
     Sub limpiar(ByVal a As Object)
         For Each control As Control In a.Controls
             If TypeOf control Is TextBox Then

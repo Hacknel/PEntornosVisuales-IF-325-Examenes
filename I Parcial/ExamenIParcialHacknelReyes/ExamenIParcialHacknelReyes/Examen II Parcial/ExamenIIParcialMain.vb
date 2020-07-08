@@ -3,7 +3,7 @@ Imports System.Data.Sql
 Imports System.Data.SqlClient
 Imports System.Runtime.InteropServices
 Public Class ExamenIIParcialMain
-
+    '-------------------------Funciones Esteticas
     <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
     Private Shared Sub ReleaseCapture()
     End Sub
@@ -13,10 +13,13 @@ Public Class ExamenIIParcialMain
     End Sub
 
     Private Sub ExamenIIParcialMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        probarConexion()
+        '----se llena el DGV principal
         llenardataGrid(dgvFacturaDatos, "select ve.idVenta as 'Id Venta', cl.nombre as 'Nombre', cl.apellido as 'Apellidos', pr.nombreProducto as 'Nombre Producto', ve.cantidad as 'Cantidad Producto', ve.precio as 'Precio Venta', ve.fechaVenta as 'Fecha de Venta' from factura.cliente cl inner join factura.Venta ve on cl.idCliente = ve.idCliente inner join factura.producto pr on pr.idProducto = ve.idProducto")
     End Sub
 
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        'Se comprueba y muestra los valores de la base de datos dependiendo del id que se pida
         If txtidVenta.Text <> String.Empty Then
             If comprobacionExiste("select idVenta from factura.Venta where idVenta = '" & Val(txtidVenta.Text) & "'") = 1 Then
                 llenarTextBox(mtxtFecha, "select fechaVenta from factura.Venta where idVenta = '" & txtidVenta.Text & "'", "fechaVenta")
@@ -34,15 +37,20 @@ Public Class ExamenIIParcialMain
     End Sub
 
     Private Sub btnRefrescar_Click(sender As Object, e As EventArgs) Handles btnRefrescar.Click
+        'Funcion opcional de refrescar la BD
         llenardataGrid(dgvFacturaDatos, "select ve.idVenta as 'Id Venta',  cl.nombre as 'Nombre', cl.apellido as 'Apellidos', pr.nombreProducto as 'Nombre Producto', ve.cantidad as 'Cantidad Producto', ve.precio as 'Precio Venta', ve.fechaVenta as 'Fecha de Venta' from factura.cliente cl inner join factura.Venta ve on cl.idCliente = ve.idCliente inner join factura.producto pr on pr.idProducto = ve.idProducto")
 
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
+        'Funcion para modificar los valores de la base de datos
         Try
+            'comprueba que los datos se hayan ingresado bien
             If comprobaciones() = 0 Then
+                'comprruban que existan valores de id en la BD
                 If obtenerVariable("select * from factura.cliente", "idCliente", Val(txtidCliente.Text)) = 1 Then
                     If obtenerVariable("select * from factura.producto", "idProducto", Val(txtIdProducto.Text)) = 1 Then
+                        '-----------Funcion Procedidmiento almacenado que modifica
                         conexion.Open()
                         Dim comandos As SqlCommand = conexion.CreateCommand()
                         comandos.CommandText = "modificar"
@@ -84,6 +92,7 @@ Public Class ExamenIIParcialMain
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        'Funcion que elimina los registros de la base de datos segun ID
         If comprobaciones() = 0 Then
             ejecutarComando("delete from factura.Venta where idVenta = '" & txtidVenta.Text & "'")
             llenardataGrid(dgvFacturaDatos, "select ve.idVenta as 'Id Venta',  cl.nombre as 'Nombre', cl.apellido as 'Apellidos', pr.nombreProducto as 'Nombre Producto', ve.cantidad as 'Cantidad Producto', ve.precio as 'Precio Venta', ve.fechaVenta as 'Fecha de Venta' from factura.cliente cl inner join factura.Venta ve on cl.idCliente = ve.idCliente inner join factura.producto pr on pr.idProducto = ve.idProducto")
@@ -93,6 +102,7 @@ Public Class ExamenIIParcialMain
 
     End Sub
 
+    '------------------------------------------------------------------------De igual manera que la funucion de modificar, solo que esta realliza la operacion de insercion
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
         Try
             If comprobaciones() = 0 Then
@@ -147,6 +157,7 @@ Public Class ExamenIIParcialMain
         Next
     End Sub
 
+    '----------------------------------Comprobaciones, sugerencias y validacion con errorProvide y toolTip
     Function comprobaciones()
         If Me.ValidateChildren And txtidVenta.Text <> String.Empty And mtxtFecha.Text <> String.Empty And txtPrecio.Text <> String.Empty And txtidCliente.Text <> String.Empty And txtIdProducto.Text <> String.Empty Then
             Return 0
